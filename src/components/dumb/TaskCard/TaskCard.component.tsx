@@ -25,9 +25,10 @@ export const TaskCard: React.FC<TaskCardProps> = ({
     >
       <Avatar src={avatar}>{name.substring(0, 2)}</Avatar>
 
-      <Stack flex={1}>
-        <Typography>{name}</Typography>
-        <Typography color="text.secondary" variant="body2">
+      <Stack sx={{ overflow: "hidden" }} flex={1}>
+        <Typography noWrap>{name}</Typography>
+
+        <Typography color="text.secondary" variant="body2" noWrap>
           {task}
         </Typography>
       </Stack>

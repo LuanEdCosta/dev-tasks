@@ -9,7 +9,14 @@ export const TaskList: React.FC<TaskListProps> = ({
   handleRemoveTask,
 }) => {
   return (
-    <Stack bgcolor="white" borderRadius={2} p={2} spacing={1}>
+    <Stack
+      p={4}
+      spacing={1}
+      bgcolor="white"
+      borderRadius={2}
+      border="1px solid"
+      borderColor="grey.300"
+    >
       {taskList.map(({ avatar_url, name, task }, index) => {
         return (
           <TaskCard
