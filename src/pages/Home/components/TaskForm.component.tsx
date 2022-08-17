@@ -32,11 +32,10 @@ export const TaskForm: React.FC<TaskFormProps> = ({
   handleValidate,
   handleClearForm,
 }) => {
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (handleValidate()) {
-      handleAddTask(username, task);
-      handleClearForm();
+      if (await handleAddTask(username, task)) handleClearForm();
     }
   };
 
