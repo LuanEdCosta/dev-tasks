@@ -10,6 +10,8 @@ import "@fontsource/roboto/400.css";
 import "@fontsource/roboto/500.css";
 import "@fontsource/roboto/700.css";
 
+import "../locales/Locales.config";
+
 export const App: React.FC = () => {
   return (
     <ThemeProvider theme={DefaultTheme}>

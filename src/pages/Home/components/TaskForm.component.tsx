@@ -8,6 +8,7 @@ import {
 } from "@mui/material";
 import { UseTaskFormReturn } from "../hooks/useTaskForm.hook";
 import { UseTaskListReturn } from "../hooks/useTaskList.hook";
+import { useTranslation } from "react-i18next";
 
 type TaskFormProps = Pick<
   UseTaskFormReturn,
@@ -32,6 +33,8 @@ export const TaskForm: React.FC<TaskFormProps> = ({
   handleValidate,
   handleClearForm,
 }) => {
+  const { t } = useTranslation(["Home", "Glossary", "Validation"]);
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (handleValidate()) {
@@ -50,12 +53,10 @@ export const TaskForm: React.FC<TaskFormProps> = ({
       <Grid component="form" onSubmit={handleSubmit} spacing={2} container>
         <Grid xs={12} sm={4} item>
           <TextField
-            label="GitHub username"
             value={username}
+            label={t("usernameLabel")}
             error={errors.isUsernameEmpty}
-            helperText={
-              errors.isUsernameEmpty && "This field should not be empty"
-            }
+            helperText={errors.isUsernameEmpty && t("Validation:emptyField")}
             onChange={(e) => setUsername(e.target.value)}
             fullWidth
           />
@@ -63,10 +64,10 @@ export const TaskForm: React.FC<TaskFormProps> = ({
 
         <Grid xs={12} sm={4} item>
           <TextField
-            label="Task"
             value={task}
+            label={t("taskLabel")}
             error={errors.isTaskEmpty}
-            helperText={errors.isTaskEmpty && "This field should not be empty"}
+            helperText={errors.isTaskEmpty && t("Validation:emptyField")}
             onChange={(e) => setTask(e.target.value)}
             fullWidth
           />
@@ -83,7 +84,7 @@ export const TaskForm: React.FC<TaskFormProps> = ({
             }
             fullWidth
           >
-            Add
+            {t("Glossary:add")}
           </Button>
         </Grid>
       </Grid>
