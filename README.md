@@ -1,6 +1,6 @@
 # :white_check_mark: Dev Tasks
 
-App created during the CPQD Front-End Chapter meeting to talk about:
+App created during the **CPQD Front-End Chapter Meeting** to talk about:
 
 - Separation of Concerns
 - Abstraction
